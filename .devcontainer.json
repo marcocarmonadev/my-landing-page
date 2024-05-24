@@ -1,0 +1,32 @@
+{
+    "name": "My Landing Page",
+    "customizations": {
+        "vscode": {
+            "settings": {},
+            "extensions": [
+                "ms-vscode.vscode-typescript-next",
+                "VisualStudioExptTeam.vscodeintellicode",
+                "astro-build.astro-vscode",
+                "bradlc.vscode-tailwindcss",
+                "christian-kohler.path-intellisense",
+                "esbenp.prettier-vscode"
+            ]
+        }
+    },
+    "image": "mcr.microsoft.com/vscode/devcontainers/typescript-node:18",
+    "runArgs": [
+        "--env-file=envs/development.env",
+        "--name=my-landing-page-container-development"
+    ],
+    "postCreateCommand": [
+        "npm",
+        "install"
+    ],
+    "mounts": [
+        {
+            "source": "${localEnv:HOME}/.ssh",
+            "target": "/home/node/.ssh",
+            "type": "bind"
+        }
+    ]
+}
